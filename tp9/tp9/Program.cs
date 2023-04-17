@@ -1,3 +1,5 @@
+using tp9;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,24 +18,31 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
+var Mahasiswa = new[]
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+   "Reyhan", "ui", "kutur", "luru"
+};
+var nim = new[]
+{
+     1302210110, 1302210198, 1302219187, 1302209876
 };
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/Mahasiswa_1302210110", () =>
 {
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-       new WeatherForecast
-       (
-           DateTime.Now.AddDays(index),
-           Random.Shared.Next(-20, 55),
-           summaries[Random.Shared.Next(summaries.Length)]
-       ))
-        .ToArray();
-    return forecast;
+    var Mahasiwa = new Mahasiswa_1302210110();
+    string getmahasiswa(int i, int j)
+    {
+        while (i < Mahasiswa.Length)
+        {
+            while (j < nim.Length)
+            {
+                return Mahasiswa[j];
+            }
+        }
+        return null;
+    }
 })
-.WithName("GetWeatherForecast");
+.WithName("Mahasiswa");
 
 app.Run();
 
